@@ -1,0 +1,29 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  TargetRailsVersion: 5.1
+  Exclude:
+    - 'Rakefile'
+
+# Don't enforce documentation
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 120
+
+Style/FormatStringToken:
+  Enabled: false
+
+Metrics/ClassLength:
+  Exclude:
+    - 'lib/**/engine.rb'
+    - 'test/**/*'
+
+Performance/FixedSize:
+  Exclude:
+    - 'test/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'lib/**/engine.rb'
+    - 'test/**/*'

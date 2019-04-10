@@ -1,0 +1,5 @@
+:foreman_supervisory_authoriy:
+  server_url: https://elastic-apm.example.com
+  secret_token: '12345verysecret'
+  service_name: 'foreman'
+  transaction_max_spans: 100
