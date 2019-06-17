@@ -23,6 +23,11 @@ module ForemanSupervisoryAuthority
     config.elastic_apm.current_user_email_method = :mail
     config.elastic_apm.current_user_username_method = :login
 
+    config.elastic_apm.custom_key_filters = [
+      'Cookie',
+      'Set-Cookie'
+    ]
+
     config.elastic_apm.merge!(SETTINGS[:foreman_supervisory_authoriy])
 
     # Include concerns in this config.to_prepare block
