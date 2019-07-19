@@ -34,6 +34,4 @@ end
 Rake::Task[:test].enhance ['test:foreman_supervisory_authority']
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task['jenkins:unit'].enhance ['test:foreman_supervisory_authority', 'foreman_supervisory_authority:rubocop']
-end
+Rake::Task['jenkins:unit'].enhance ['test:foreman_supervisory_authority', 'foreman_supervisory_authority:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')

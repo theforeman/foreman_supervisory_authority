@@ -23,16 +23,14 @@ module ForemanSupervisoryAuthority
     config.elastic_apm.current_user_email_method = :mail
     config.elastic_apm.current_user_username_method = :login
 
-    config.elastic_apm.merge!(SETTINGS[:foreman_supervisory_authoriy])
+    config.elastic_apm.merge!(SETTINGS[:foreman_supervisory_authoriy]) if SETTINGS[:foreman_supervisory_authoriy]
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       begin
         ::ApplicationController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext)
         ::Api::BaseController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext)
-        if defined?(::Api::GraphqlController)
-          ::Api::GraphqlController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext)
-        end
+        ::Api::GraphqlController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext) if defined?(::Api::GraphqlController)
       rescue StandardError => e
         Rails.logger.warn "ForemanSupervisoryAuthority: skipping engine hook (#{e})"
       end
