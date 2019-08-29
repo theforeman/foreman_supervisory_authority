@@ -23,7 +23,7 @@ module ForemanSupervisoryAuthority
     config.elastic_apm.current_user_email_method = :mail
     config.elastic_apm.current_user_username_method = :login
 
-    config.elastic_apm.merge!(SETTINGS[:foreman_supervisory_authoriy]) if SETTINGS[:foreman_supervisory_authoriy]
+    config.elastic_apm.merge!(SETTINGS[:foreman_supervisory_authority]) if SETTINGS[:foreman_supervisory_authority]
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
