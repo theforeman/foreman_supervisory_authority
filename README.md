@@ -16,7 +16,7 @@ Below you can find an example config file. All the possible parameters are docum
 [on the Elastic site](https://www.elastic.co/guide/en/apm/agent/ruby/current/configuration.html#_options).
 
 ```yaml
-:foreman_supervisory_authoriy:
+:foreman_supervisory_authority:
   server_url: https://elastic-apm.example.com
   secret_token: '12345verysecret'
   service_name: 'foreman'

@@ -1,4 +1,4 @@
-:foreman_supervisory_authoriy:
+:foreman_supervisory_authority:
   server_url: https://elastic-apm.example.com
   secret_token: '12345verysecret'
   service_name: 'foreman'
