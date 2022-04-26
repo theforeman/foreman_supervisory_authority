@@ -10,14 +10,11 @@ module ForemanSupervisoryAuthority
 
     initializer 'foreman_supervisory_authority.register_plugin', before: :finisher_hook do
       Foreman::Plugin.register :foreman_supervisory_authority do
-        requires_foreman '>= 1.20'
+        requires_foreman '>= 3.0'
       end
     end
 
-    # we need to disable the 'net_http' spy, see
-    # https://github.com/elastic/apm-agent-ruby/issues/379
-    # for reasoning
-    config.elastic_apm.disabled_spies = %w[json net_http]
+    config.elastic_apm.disable_instrumentations = %w[json]
 
     # map user context methods to what we use in Foreman
     config.elastic_apm.current_user_email_method = :mail
@@ -27,13 +24,11 @@ module ForemanSupervisoryAuthority
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
-      begin
-        ::ApplicationController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext)
-        ::Api::BaseController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext)
-        ::Api::GraphqlController.send(:include, ForemanSupervisoryAuthority::SetElasticApmContext) if defined?(::Api::GraphqlController)
-      rescue StandardError => e
-        Rails.logger.warn "ForemanSupervisoryAuthority: skipping engine hook (#{e})"
-      end
+      ::ApplicationController.include ForemanSupervisoryAuthority::SetElasticApmContext
+      ::Api::BaseController.include ForemanSupervisoryAuthority::SetElasticApmContext
+      ::Api::GraphqlController.include ForemanSupervisoryAuthority::SetElasticApmContext
+    rescue StandardError => e
+      Rails.logger.warn "ForemanSupervisoryAuthority: skipping engine hook (#{e})"
     end
   end
 

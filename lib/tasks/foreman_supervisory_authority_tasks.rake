@@ -15,7 +15,7 @@ namespace :test do
 end
 
 namespace :foreman_supervisory_authority do
-  task :rubocop do
+  task rubocop: :environment do
     begin
       require 'rubocop/rake_task'
       RuboCop::RakeTask.new(:rubocop_foreman_supervisory_authority) do |task|
@@ -34,4 +34,7 @@ end
 Rake::Task[:test].enhance ['test:foreman_supervisory_authority']
 
 load 'tasks/jenkins.rake'
-Rake::Task['jenkins:unit'].enhance ['test:foreman_supervisory_authority', 'foreman_supervisory_authority:rubocop'] if Rake::Task.task_defined?(:'jenkins:unit')
+if Rake::Task.task_defined?(:'jenkins:unit')
+  Rake::Task['jenkins:unit'].enhance ['test:foreman_supervisory_authority',
+                                      'foreman_supervisory_authority:rubocop']
+end
