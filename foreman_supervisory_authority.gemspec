@@ -15,8 +15,15 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
-  s.add_runtime_dependency 'elastic-apm', '~> 2.0'
+  s.metadata = {
+    'rubygems_mfa_required' => 'true',
+    'is_foreman_plugin' => 'true'
+  }
 
-  s.add_development_dependency 'rdoc'
-  s.add_development_dependency 'rubocop', '~> 0.64.0'
+  s.add_runtime_dependency 'elastic-apm', '~> 4.0'
+
+  s.add_development_dependency 'rdoc', '~> 6.0'
+  s.add_development_dependency 'rubocop', '~> 1.28'
+  s.add_development_dependency 'rubocop-performance', '~> 1.13'
+  s.add_development_dependency 'rubocop-rails', '~> 2.14'
 end

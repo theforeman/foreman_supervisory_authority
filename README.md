@@ -2,6 +2,13 @@
 
 This Foreman plug-in adds support for reporting data to the Elastic APM.
 
+## Compatibility
+
+| Foreman Version | Plugin Version |
+| --------------- | -------------- |
+| >= 1.20         | ~> 0.0.2       |
+| >= 3.0          | ~> 0.1.0       |
+
 ## Installation
 
 See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
@@ -18,8 +25,8 @@ Below you can find an example config file. All the possible parameters are docum
 ```yaml
 :foreman_supervisory_authority:
   server_url: https://elastic-apm.example.com
-  secret_token: '12345verysecret'
-  service_name: 'foreman'
+  secret_token: "12345verysecret"
+  service_name: "foreman"
   transaction_max_spans: 100
 ```
 
@@ -38,9 +45,8 @@ the Free Software Foundation, either version 3 of the License, or
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
+along with this program. If not, see <http://www.gnu.org/licenses/>.
