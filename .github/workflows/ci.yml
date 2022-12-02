@@ -30,9 +30,9 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        foreman-core-branch: [3.0-stable, 3.1-stable, 3.2-stable, develop]
+        foreman-core-branch: [3.0-stable, 3.1-stable, 3.2-stable, 3.3-stable, 3.4-stable, 3.5-stable, develop]
         ruby-version: [2.7]
-        node-version: [10]
+        node-version: [12, 14]
     steps:
       - name: Install dependencies
         run: |
