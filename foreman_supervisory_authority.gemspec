@@ -8,12 +8,11 @@ Gem::Specification.new do |s|
   s.license     = 'GPL-3.0'
   s.authors     = ['Timo Goebel']
   s.email       = ['mail@timogoebel.name']
-  s.homepage    = 'https://github.com/timogoebel/foreman_supervisory_authority'
+  s.homepage    = 'https://github.com/theforeman/foreman_supervisory_authority'
   s.summary     = 'This Foreman plug-in integrates with Elastic APM.'
   s.description = 'This plug-in for Foreman sends data to Elastic APM.'
 
   s.files = Dir['{app,config,lib}/**/*'] + ['LICENSE', 'Rakefile', 'README.md']
-  s.test_files = Dir['test/**/*']
 
   s.metadata = {
     'rubygems_mfa_required' => 'true',
