@@ -8,6 +8,7 @@ This Foreman plug-in adds support for reporting data to the Elastic APM.
 | --------------- | -------------- |
 | >= 1.20         | ~> 0.0.2       |
 | >= 3.0          | ~> 0.1.0       |
+| >= 3.10         | ~> 0.2.0       |
 
 ## Installation
 
