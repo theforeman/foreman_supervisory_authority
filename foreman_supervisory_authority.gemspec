@@ -16,13 +16,13 @@ Gem::Specification.new do |s|
 
   s.metadata = {
     'rubygems_mfa_required' => 'true',
-    'is_foreman_plugin' => 'true'
+    'is_foreman_plugin' => 'true',
   }
 
-  s.add_runtime_dependency 'elastic-apm', '~> 4.0'
+  s.required_ruby_version = '>= 2.5', '< 4'
+
+  s.add_dependency 'elastic-apm', '~> 4.0'
 
   s.add_development_dependency 'rdoc', '~> 6.0'
-  s.add_development_dependency 'rubocop', '~> 1.28'
-  s.add_development_dependency 'rubocop-performance', '~> 1.13'
-  s.add_development_dependency 'rubocop-rails', '~> 2.14'
+  s.add_development_dependency 'theforeman-rubocop', '~> 0.1.2'
 end

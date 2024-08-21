@@ -1,29 +1,3 @@
-
-require:
-  - rubocop-rails
-  - rubocop-performance
-
-AllCops:
-  TargetRubyVersion: 2.7
-  TargetRailsVersion: 5.2
-  NewCops: enable
-  Exclude:
-    - '*.spec'
-    - 'Rakefile'
-
-Style/Documentation:
-  Enabled: false
-
-Metrics:
-  Enabled: false
-
-Style/FormatStringToken:
-  Enabled: false
-
-Performance/FixedSize:
-  Exclude:
-    - 'test/**/*'
-
-Gemspec/RequiredRubyVersion:
-  Exclude:
-    - 'foreman_supervisory_authority.gemspec'
+inherit_gem:
+  theforeman-rubocop:
+    - default.yml
