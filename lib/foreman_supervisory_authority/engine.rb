@@ -10,7 +10,7 @@ module ForemanSupervisoryAuthority
 
     initializer 'foreman_supervisory_authority.register_plugin', before: :finisher_hook do
       Foreman::Plugin.register :foreman_supervisory_authority do
-        requires_foreman '>= 3.0'
+        requires_foreman '>= 3.10'
       end
     end
 
